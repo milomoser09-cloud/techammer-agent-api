@@ -28,7 +28,7 @@ if (!API_KEY) {
 
 // ---------------------------------------------------------------- database
 
-const db = new Database(DB_PATH);
+require('fs').mkdirSync(path.dirname(DB_PATH), { recursive: true }); const db = new Database(DB_PATH);
 db.pragma('journal_mode = WAL');
 
 db.exec(`
